@@ -11,8 +11,8 @@ import pages.LoginPage;
 import pages.UserPage;
 
 public class LoginPageTest extends BrowserFactory{
-	
-	@Test(dataProviderClass = DataProviderForLogin.class, dataProvider = "Credentials")
+	private static final String loginRepro = "1. Click on login Link<br>2.Type UserName and Password.<br>3.Click on login button<br>";
+	@Test(dataProviderClass = DataProviderForLogin.class, dataProvider = "Credentials", description = loginRepro)
 	public void verifyLogin(String displayName, String userName, String pass) {
 		HomePage homePage = new HomePage(getInstance());
 		LoginPage login = homePage.clickLoginLink();
